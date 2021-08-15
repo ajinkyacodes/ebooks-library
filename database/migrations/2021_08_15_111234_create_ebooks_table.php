@@ -18,6 +18,7 @@ class CreateEbooksTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->longText('description');
+            $table->string('ebook_file');
             $table->string('featured_image');
             $table->integer('category_id')->nullable();
             $table->timestamps();
