@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ebook;
 use Illuminate\Http\Request;
 
 class EbookController extends Controller
@@ -13,7 +14,8 @@ class EbookController extends Controller
      */
     public function index()
     {
-        return view('ebooks.index');
+        $ebooks = Ebook::all();
+        return view('ebooks.index')->with('ebooks', $ebooks);
     }
 
     /**

@@ -387,9 +387,8 @@ section .wrapper { width: 90%; }
 
 h2,
 h3 {
-    padding: 20px 0;
+    padding: 20px 5%;
     margin-bottom: 20px;
-    font-family: 'Fredoka One', cursive;
     font-size: 24px;
     font-weight: 400;
 }
@@ -439,8 +438,8 @@ header {
 }
 
 header h1 {
-    padding: 50px 0;
-    font-family: sans-serif;
+    padding: 50px 5%;
+    font-family: 'Fredoka One', cursive;
     font-size: 36px;
 }
 
@@ -452,5 +451,19 @@ footer {
     padding: 20px 0;
     background-color: #000;
     color: #fff;
+    font-family: sans-serif;
     text-align: center;
+}
+
+.ebooks-page h2 {
+    font-family: sans-serif;
+}
+
+.ebooks-page table {
+    font-family: sans-serif;
+    line-height: 1.4;
+}
+
+.ebooks-page table th {
+    font-weight: 700;
 }
