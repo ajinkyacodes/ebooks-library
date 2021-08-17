@@ -46,13 +46,13 @@
                                             <div style="width: 200px;white-space: nowrap; overflow: hidden;text-overflow: ellipsis;">{!! $ebook->description !!}</div>
                                         </td>
                                         <td>
-                                            <a href="#FIXME" title="Category" class="text-dark">
+                                            <p class="text-dark">
                                                 @if(!empty(\App\Models\Category::where('id',$ebook->category_id)->first()))
                                                     {{\App\Models\Category::where('id',$ebook->category_id)->first()->name}}
                                                 @else
                                                     <span>N/A</span>
                                                 @endif
-                                            </a>
+                                            </p>
                                         </td>
                                         <td>
                                             <a href="{{route('ebooks.show', $ebook->id)}}" class="btn btn-primary btn-sm">
