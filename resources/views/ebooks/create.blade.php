@@ -3,7 +3,7 @@
     <main>
         <div class="wrapper">
             <h2>Add Ebook</h2>
-            <div class="col-md-12">
+            <div class="col-md-12 mb-4">
                 <div class="card">
                     <div class="card-header">
                                 <span>
@@ -20,14 +20,6 @@
                             @if(isset($ebook))
                                 @method('PUT')
                             @endif
-
-{{--                            <div class="form-group">--}}
-{{--                                <label for="ebook_file">Ebook File</label>--}}
-{{--                                <input type="file" class="form-control" name="ebook_file" value="{{isset($ebook)? $ebook->ebook_file : old('ebook_file')}}">--}}
-{{--                                @error('ebook_file')--}}
-{{--                                <span class="text-danger">{{$message}}</span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="ebook_file">Ebook File</label>
