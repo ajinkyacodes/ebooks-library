@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/login')}}">Login</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/register')}}">Sign Up</a>
+                    </li>
                 @endif
             </ul>
         </div>

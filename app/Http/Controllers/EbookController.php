@@ -19,7 +19,8 @@ class EbookController extends Controller
      */
     public function index()
     {
-        $ebooks = Ebook::all();
+        $user_id=auth()->user()->id;
+        $ebooks = Ebook::all()->where('user_id',$user_id);
         return view('ebooks.index')->with('ebooks', $ebooks);
     }
 
@@ -76,6 +77,7 @@ class EbookController extends Controller
         $ebook_file->move($ebook_file_up_location, $ebook_file_name);
 
         $ebook = Ebook::create([
+            'user_id' => $user_id,
             'title' => $request->title,
             'description' => $request->description,
             'author' => $request->author,
@@ -139,9 +141,9 @@ class EbookController extends Controller
             'title.required' => 'Please add the blog title.',
         ]);
 
-        $data = $request->only(['title','description', 'author', 'category_id']);
-
         $user_id=auth()->user()->id;
+
+        $data = $request->only(['user_id'=>$user_id, 'title','description', 'author', 'category_id']);
 
         if ($request->hasFile('featured_image')) {
             $featured_old_image = $request->featured_old_image;

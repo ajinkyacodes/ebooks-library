@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         @else
-                            <h3>No ebooks Available</h3>
+                            <h3>No Ebooks Available</h3>
                         @endisset
                     </div>
                 </div>

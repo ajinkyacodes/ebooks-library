@@ -92,7 +92,7 @@
                                         @endforeach
                                     </select>
                                 @else
-                                    <a href="{{route('ebooks-category.create')}}">
+                                    <a href="#FIXME">
                                         <p class="text-warning">Please Add ebook Category to proceed. (Click Here)</p>
                                     </a>
                                 @endif

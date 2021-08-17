@@ -15,6 +15,7 @@ class CreateEbooksTable extends Migration
     {
         Schema::create('ebooks', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
             $table->string('title');
             $table->string('author');
             $table->longText('description');
