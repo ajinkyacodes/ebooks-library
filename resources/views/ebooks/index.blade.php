@@ -5,7 +5,7 @@
             <h2>Hi.. {{ Auth::user()->name }}</h2>
             <div class="col-md-12 mb-4">
                 <div class="card" style="overflow-y: auto;">
-                    <div class="card-header">
+                    <div class="card-header" style="font-family: sans-serif;">
                                 <span>
                                     <b>All Ebooks</b>
                                 </span>
@@ -21,7 +21,6 @@
                                     <th scope="col">Featured Image</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Author</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Category</th>
                                     <th>Action</th>
                                 </tr>
@@ -41,9 +40,6 @@
                                         </td>
                                         <td>
                                             {{$ebook->author}}
-                                        </td>
-                                        <td>
-                                            <div style="width: 200px;white-space: nowrap; overflow: hidden;text-overflow: ellipsis;">{!! $ebook->description !!}</div>
                                         </td>
                                         <td>
                                             <p class="text-dark">

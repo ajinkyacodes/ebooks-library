@@ -2,9 +2,8 @@
 @section('content')
     <main>
         <div class="wrapper">
-            <h2>Add Ebook</h2>
-            <div class="col-md-12 mb-4">
-                <div class="card">
+            <div class="col-md-12 mt-4 mb-4">
+                <div class="card" style="font-family: sans-serif;">
                     <div class="card-header">
                                 <span>
                                     <b>{{isset($ebook)? 'Update ebook' : 'Add New ebook'}}</b>
