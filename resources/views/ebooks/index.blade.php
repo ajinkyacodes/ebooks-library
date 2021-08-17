@@ -30,7 +30,7 @@
                                 @foreach($ebooks as $ebook)
                                     <tr>
                                         <td>
-                                            <a href="{{route('ebooks.show',$ebook->id)}}" title="{{$ebook->title}}">
+                                            <a href="{{$ebook->ebook_file}}" title="{{$ebook->title}}" target="_blank">
                                                 <img src="{{asset($ebook->featured_image)}}" alt="{{$ebook->title}}" height="auto" class="m-auto" style="width:100%; max-width: 200px;">
                                             </a>
                                         </td>
@@ -43,10 +43,16 @@
                                             {{$ebook->author}}
                                         </td>
                                         <td>
-                                            <p style="width: 200px;white-space: nowrap; overflow: hidden;text-overflow: ellipsis;">{{$ebook->description}}</p>
+                                            <div style="width: 200px;white-space: nowrap; overflow: hidden;text-overflow: ellipsis;">{!! $ebook->description !!}</div>
                                         </td>
                                         <td>
-                                            {{$ebook->category_id ? $ebook->category_id : 'N/A'}}
+                                            <a href="#FIXME" title="Category" class="text-dark">
+                                                @if(!empty(\App\Models\Category::where('id',$ebook->category_id)->first()))
+                                                    {{\App\Models\Category::where('id',$ebook->category_id)->first()->name}}
+                                                @else
+                                                    <span>N/A</span>
+                                                @endif
+                                            </a>
                                         </td>
                                         <td>
                                             <a href="{{route('ebooks.show', $ebook->id)}}" class="btn btn-primary btn-sm">
@@ -76,7 +82,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <p class="text-center">Are you sure you want to delete this ebook?</p>
+                                                <p class="text-center">Are you sure you want to permanently delete this ebook?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go back</button>
@@ -94,4 +100,13 @@
             </div>
         </div>
     </main>
+@endsection
+@section('scripts')
+    <script>
+        function handleDelete(id) {
+            var form = document.getElementById("deleteebookForm");
+            form.action = '/ebooks/' + id;
+            $('#deleteModal').modal('show');
+        }
+    </script>
 @endsection
