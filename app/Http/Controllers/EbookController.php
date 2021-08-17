@@ -97,25 +97,33 @@ class EbookController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response|void
      */
     public function show(Ebook $ebook)
     {
+        if($ebook->user_id != auth()->id()) {
+            return abort(404);
+        } else {
         return view('ebooks.show')
             ->with('ebook', $ebook);
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response|void
      */
     public function edit(Ebook $ebook)
     {
-        return view('ebooks.create')
-            ->with('ebook', $ebook)
-            ->with('categories', Category::all());//Fetch Category Type=Blogs
+        if($ebook->user_id != auth()->id()) {
+            return abort(404);
+        } else {
+            return view('ebooks.create')
+                ->with('ebook', $ebook)
+                ->with('categories', Category::all());
+        }
     }
 
     /**
