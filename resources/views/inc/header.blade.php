@@ -14,6 +14,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('ebooks.index')}}">Ebooks</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
+                </li>
                 @endif
             </ul>
             <ul class="navbar-nav ml-auto">
